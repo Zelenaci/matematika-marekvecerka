@@ -14,9 +14,39 @@ class About(tk.Toplevel):
         btn = tk.Button(self, text="Konec", command=self.close)
         btn.pack()
 
+    def generuj(self):
+        self.funkce = random.choice([self.plus, self.minus, self.krat, self.delete])
+        self.funkce()
+        if self.funkce == self.minus:
+            print("Jo")
+        else:
+            print("Ne")
+
+
+
+    def plus():
+            # vygeruje příklad na scčítání
+            self.cisloA = random.randint(1,99)
+            self.cisloB = random.randint(1,99)
+            self.vysledek = self.cisloA + self.cisloB
     def close(self):
         self.destroy()
+    
+    def krat(self):
+        self.lbl.config(text="*")
 
+    def deleno():
+        #Vygeneruje příklad na celočíselné dělen
+
+            self.cisloB = random.randint(1,9)
+            self.vysledek = random.randint(1,9)
+            self.cisloA = self.cisloB  - self.vysledek
+            self.lbl.config(text='/')
+
+
+    def close(self):
+        self.plus()
+    
 
 class Application(tk.Tk):
     name = basename(splitext(basename(__file__.capitalize()))[0])
@@ -34,12 +64,4 @@ class Application(tk.Tk):
         self.btn2.pack()
 
     def about(self):
-        window = About(self)
-        window.grab_set()
-
-    def quit(self, event=None):
-        super().quit()
-
-
-app = Application()
-app.mainloop()
+     oainloop()
